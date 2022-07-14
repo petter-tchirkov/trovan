@@ -14,7 +14,7 @@
       />
     </div>
     <div class="filter__content" v-show="isFilterExpanded">
-      <div class="filter__items flex gap-7 items-center mb-5 pl-5 pt-6">
+      <div class="filter__items flex gap-7 items-center mb-4 pl-5 pt-6">
         <label>
           Action Date
           <div class="filter__dates flex gap-6">
@@ -132,14 +132,20 @@
           </div>
         </label>
       </div>
-      <div class="filter__actions flex gap-7 pb-9 pl-5">
-        <button class="py-2.5 px-[52px] bg-[#0085FF] rounded-md text-white">
+      <div class="filter__actions flex gap-7 pb-6 pl-5">
+        <button
+          class="py-2 px-[52px] text-sm bg-[#0085FF] rounded-md text-white"
+        >
           Save
         </button>
-        <button class="py-2.5 px-[52px] bg-[#799BBB] rounded-md text-white">
+        <button
+          class="py-2 px-[52px] text-sm bg-[#799BBB] rounded-md text-white"
+        >
           Clear
         </button>
-        <button class="py-2.5 px-[52px] bg-[#425B76] rounded-md text-white">
+        <button
+          class="py-2 px-[52px] text-sm bg-[#425B76] rounded-md text-white"
+        >
           Filter
         </button>
       </div>

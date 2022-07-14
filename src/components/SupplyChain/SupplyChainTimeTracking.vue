@@ -1,6 +1,6 @@
 <template>
-  <div class="px-11 pt-8 bg-[#F5F8FA] h-full">
-    <Filter class="mb-11" />
+  <div class="px-11 pt-6 bg-[#F5F8FA]">
+    <Filter class="mb-6" />
     <Datatable />
   </div>
 </template>
