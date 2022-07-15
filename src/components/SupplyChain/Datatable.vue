@@ -5,13 +5,29 @@
       @click="isDetailsShown = !isDetailsShown"
     >
       Details
-      <img
-        :src="
-          isDetailsShown
-            ? '../../src/assets/images/collapse.svg'
-            : '../../src/assets/images/expand.svg'
-        "
-      />
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        v-if="isDetailsShown"
+      >
+        <circle cx="13" cy="13" r="13" fill="#374F69" />
+        <rect x="7" y="12" width="13" height="2" fill="white" />
+      </svg>
+      <svg
+        v-else
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="13" cy="13" r="13" fill="#374F69" />
+        <rect x="7" y="12" width="13" height="2" fill="white" />
+        <path d="M14.5 19.5H12.5V6.5H14.5V19.5Z" fill="white" />
+      </svg>
     </div>
     <table class="datatable__content mb-6" v-show="isDetailsShown">
       <thead class="datatable__head pt-2.5 pb-3 pl-8">
@@ -90,9 +106,15 @@ export default {
     switchPage(page) {
       this.pageNumber = page;
     },
+    addIndexes() {
+      this.$store.state.datatable.forEach((detail) => {
+        detail.id = this.$store.state.datatable.indexOf(detail) + 1;
+      });
+    },
   },
   mounted() {
     this.getTable();
+    this.addIndexes();
   },
   computed: {
     table() {

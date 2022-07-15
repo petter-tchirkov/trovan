@@ -5,13 +5,29 @@
       @click="isFilterExpanded = !isFilterExpanded"
     >
       Filter
-      <img
-        :src="
-          isFilterExpanded
-            ? '../../src/assets/images/collapse.svg'
-            : '../../src/assets/images/expand.svg'
-        "
-      />
+      <svg
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        v-if="isFilterExpanded"
+      >
+        <circle cx="13" cy="13" r="13" fill="#374F69" />
+        <rect x="7" y="12" width="13" height="2" fill="white" />
+      </svg>
+      <svg
+        v-else
+        width="26"
+        height="26"
+        viewBox="0 0 26 26"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="13" cy="13" r="13" fill="#374F69" />
+        <rect x="7" y="12" width="13" height="2" fill="white" />
+        <path d="M14.5 19.5H12.5V6.5H14.5V19.5Z" fill="white" />
+      </svg>
     </div>
     <div class="filter__content" v-show="isFilterExpanded">
       <div class="filter__items flex gap-7 items-center mb-4 pl-5 pt-6">
