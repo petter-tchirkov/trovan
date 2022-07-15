@@ -31,7 +31,11 @@
     </div>
     <table class="datatable__content mb-6" v-show="isDetailsShown">
       <thead class="datatable__head pt-2.5 pb-3 pl-8">
-        <th v-for="(header, index) in this.headers" :key="index">
+        <th
+          class="text-[#2E3842]"
+          v-for="(header, index) in this.headers"
+          :key="index"
+        >
           {{ header }}
         </th>
       </thead>
@@ -41,21 +45,14 @@
           :key="index"
           class="pl-8 py-2.5 border-b border-b-[#EBF0F5] flex items-center text-sm"
         >
-          <td class="p-0">{{ row.id }}: {{ row.operation }}</td>
-          <td class="p-0">{{ row.min }}</td>
-          <td class="p-0">{{ row.average }}</td>
-          <td class="p-0">{{ row.max }}</td>
-          <td class="p-0">{{ row.cylinderCount }}</td>
-          <td class="p-0">{{ row.median }}</td>
-          <td class="p-0">
-            <img
-              :src="
-                row.cylinders === 'green'
-                  ? '../../src/assets/images/green.svg'
-                  : '../../src/assets/images/red.svg'
-              "
-              alt=""
-            />
+          <td class="p-0 text-[#3E4C59]">{{ row.id }}: {{ row.operation }}</td>
+          <td class="p-0 text-[#3E4C59]">{{ row.min }}</td>
+          <td class="p-0 text-[#3E4C59]">{{ row.average }}</td>
+          <td class="p-0 text-[#3E4C59]">{{ row.max }}</td>
+          <td class="p-0 text-[#3E4C59]">{{ row.cylinderCount }}</td>
+          <td class="p-0 text-[#3E4C59]">{{ row.median }}</td>
+          <td class="pl-2">
+            <img src="@/assets/images/green.svg" alt="" />
           </td>
         </tr>
       </tbody>
@@ -65,17 +62,19 @@
       v-show="isDetailsShown"
     >
       <img src="@/assets/images/chevron.svg" alt="" />
-      <div
-        class="page text-[#799BBB] cursor-pointer hover:bg-gray-400 p-1"
-        v-for="(page, index) in pages"
-        :key="index"
-        @click="switchPage(page)"
-        :class="{ 'text-[#425b76] bg-gray-400': page === pageNumber }"
-      >
-        {{ page }}
+      <div class="flex gap-[22px]">
+        <div
+          class="page text-[#799BBB] cursor-pointer text-sm p-1"
+          v-for="(page, index) in pages"
+          :key="index"
+          @click="switchPage(page)"
+          :class="{ 'text-[#455360]': page === pageNumber }"
+        >
+          {{ page }}
+        </div>
       </div>
       <img src="@/assets/images/chevron.svg" class="rotate-180" alt="" />
-      <span class="text-[#799BBB]"
+      <span class="text-[#799BBB] text-sm"
         >Total: <span class="text-black">{{ pages }}</span></span
       >
     </div>
@@ -146,7 +145,7 @@ export default {
   &__head,
   &__body tr {
     display: grid;
-    grid-template-columns: 3fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 135px 180px 190px 170px 156px 100px;
   }
 
   &__pagination {

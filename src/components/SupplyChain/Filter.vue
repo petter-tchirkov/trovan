@@ -31,30 +31,34 @@
     </div>
     <div class="filter__content" v-show="isFilterExpanded">
       <div class="filter__items flex gap-7 items-center mb-4 pl-5 pt-6">
-        <label>
+        <label class="font-medium">
           Action Date
           <div class="filter__dates flex gap-6">
             <Datepicker
-              class="w-36"
+              class="w-36 datepicker"
               v-model="startDate"
               placeholder="Start Date"
               utc
               :enableTimePicker="false"
-            />
+              ><template #input-icon>
+                <img class="input-slot-image" src="" /> </template
+            ></Datepicker>
             <Datepicker
-              class="w-36"
+              class="w-36 datepicker roundedn-md"
               v-model="endDate"
               placeholder="End Date"
               utc
               :enableTimePicker="false"
-            />
+              ><template #input-icon>
+                <img class="input-slot-image" src="" /> </template
+            ></Datepicker>
           </div>
         </label>
-        <label>
+        <label class="font-medium">
           Store Location
           <div class="dropdown relative w-[304px]">
             <button
-              class="dropdown-toggle px-4 w-full py-2 text-gray-400 border border-[#799BBB] text-xs leading-tight rounded-md transition duration-150 ease-in-out flex items-center justify-between"
+              class="dropdown-toggle leading-tight font-normal px-4 w-full py-2 text-[#2C3F54] border border-[#799BBB] text-xs leading-tight rounded-md transition duration-150 ease-in-out flex items-center justify-between"
               type="button"
               id="dropdownMenuButton1tx"
               data-bs-toggle="dropdown"
@@ -82,12 +86,12 @@
               aria-labelledby="dropdownMenuButton1tx"
             >
               <span
-                class="text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-300"
+                class="text-sm font-normal py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-300"
                 >Store Location</span
               >
               <li v-for="(location, index) in this.storeLocations" :key="index">
                 <a
-                  class="dropdown-item text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                  class="dropdown-item font-normal text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                   href="#"
                   >{{ location }}</a
                 >
@@ -95,11 +99,11 @@
             </ul>
           </div>
         </label>
-        <label>
+        <label class="font-medium">
           Cylinder type
           <div class="dropdown relative w-[304px]">
             <button
-              class="dropdown-toggle px-4 w-full py-2 text-gray-400 border border-[#799BBB] text-xs leading-tight rounded-md transition duration-150 ease-in-out flex items-center justify-between"
+              class="dropdown-toggle leading-tight font-normal px-4 w-full py-2 text-[#2C3F54] border border-[#799BBB] text-xs leading-tight rounded-md transition duration-150 ease-in-out flex items-center justify-between"
               type="button"
               id="dropdownMenuButton1tx"
               data-bs-toggle="dropdown"
@@ -127,12 +131,12 @@
               aria-labelledby="dropdownMenuButton1tx"
             >
               <span
-                class="text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-300"
+                class="text-sm font-normal py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-300"
                 >5kg composite</span
               >
               <li v-for="(type, index) in this.cylinderTypes" :key="index">
                 <a
-                  class="dropdown-item text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
+                  class="dropdown-item font-normal text-sm py-2 px-4 block w-full whitespace-nowrap bg-transparent text-gray-700 hover:bg-gray-100"
                   href="#"
                   >{{ type }}</a
                 >
@@ -150,17 +154,17 @@
       </div>
       <div class="filter__actions flex gap-7 pb-6 pl-5">
         <button
-          class="py-2 px-[52px] text-sm bg-[#0085FF] rounded-md text-white"
+          class="py-2 px-[52px] font-medium text-sm bg-[#0085FF] rounded-md text-white"
         >
           Save
         </button>
         <button
-          class="py-2 px-[52px] text-sm bg-[#799BBB] rounded-md text-white"
+          class="py-2 px-[52px] font-medium text-sm bg-[#799BBB] rounded-md text-white"
         >
           Clear
         </button>
         <button
-          class="py-2 px-[52px] text-sm bg-[#425B76] rounded-md text-white"
+          class="py-2 px-[52px] font-medium text-sm bg-[#425B76] rounded-md text-white"
         >
           Filter
         </button>
@@ -194,5 +198,24 @@ export default {
 .accordion-button:not(.collapsed) {
   color: #fff;
   background-color: #425b76;
+}
+
+.datepicker {
+  position: relative;
+  &:after {
+    position: absolute;
+    content: url("");
+    top: 30%;
+    right: 10%;
+    width: 13px;
+    height: 13px;
+    background-image: url("@/assets/images/calendar.svg");
+  }
+
+  .dp__input_wrap {
+    input.dp__pointer.dp__input_readonly.dp__input.dp__input_icon_pad.dp__input_reg {
+      padding: 3px 12px 3px 8px !important;
+    }
+  }
 }
 </style>
