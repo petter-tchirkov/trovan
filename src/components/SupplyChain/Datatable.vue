@@ -1,5 +1,5 @@
 <template>
-  <div class="datatable">
+  <div class="datatable bg-white rounded-bl-xl rounded-br-xl">
     <div
       class="datatable__header flex justify-between items-center bg-[#425B76] px-5 font-bold text-white py-3 rounded-tl-xl rounded rounded-tr-xl"
       @click="isDetailsShown = !isDetailsShown"
